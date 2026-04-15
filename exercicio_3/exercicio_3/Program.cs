@@ -91,3 +91,27 @@ public class CaldaChocolate : BebidaDecorator
         return base.bebidaAtual.GetPreco() + 1.5;
     }
 }
+
+//4. programa principal - teste da implementação
+public class Program
+{
+    public static void Main()
+    {
+        Console.WriteLine("Bem-vindo à cafeteria!\n");
+
+        //pedido 1: teste de bebida pura
+        IBebida pedido1 = new Cha();
+        Console.WriteLine($"Pedido 1: {pedido1.GetDescricao()}");
+        Console.WriteLine($"Preço Total: R${pedido1.GetPreco():F2}\n");
+
+        //pedido 2: teste bebida com adicionais
+        IBebida pedido2 = new Chantilly(new Canela(new CaldaChocolate(new Capuccino())));
+        Console.WriteLine($"Pedido 2: {pedido2.GetDescricao()}");
+        Console.WriteLine($"Preço Total: R${pedido2.GetPreco():F2}\n");
+
+        //pedido 3: teste de bebida com adicional duplo (do mesmo tipo)
+        IBebida pedido3 = new Leite(new Leite(new CafeExpresso()));
+        Console.WriteLine($"Pedido 3: {pedido3.GetDescricao()}");
+        Console.WriteLine($"Preço Total: R${pedido3.GetPreco():F2}\n");
+    }
+}
