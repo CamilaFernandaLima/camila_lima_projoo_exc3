@@ -37,3 +37,57 @@ public abstract class  BebidaDecorator : IBebida
     public virtual string GetDescricao() => bebidaAtual.GetDescricao();
     public virtual double GetPreco() => bebidaAtual.GetPreco();
 }
+
+// 3. Decorators concretos (os adicionais, que herdam do BebidaDecorator)
+public class Leite : BebidaDecorator
+{   
+    //repassa para o construtor da classe pai
+    public Leite(IBebida bebida) : base(bebida) { }
+    public override string GetDescricao()
+    {
+        return base.bebidaAtual.GetDescricao() + ", Leite";
+    } 
+    public override double GetPreco()
+    {
+        return base.bebidaAtual.GetPreco() + 2.0;
+    } 
+}
+
+public class Chantilly : BebidaDecorator
+{
+    public Chantilly(IBebida bebida) : base(bebida) { }
+    public override string GetDescricao()
+    {
+        return base.bebidaAtual.GetDescricao() + ", Chantilly";
+    }
+    public override double GetPreco()
+    {
+        return base.bebidaAtual.GetPreco() + 3.0;
+    }
+}
+
+public class Canela : BebidaDecorator
+{
+    public Canela(IBebida bebida) : base(bebida) { }
+    public override string GetDescricao()
+    {
+        return base.bebidaAtual.GetDescricao() + ", Canela";
+    }
+    public override double GetPreco()
+    {
+        return base.bebidaAtual.GetPreco() + 1.0;
+    }
+}
+
+public class CaldaChocolate : BebidaDecorator
+{
+    public CaldaChocolate(IBebida bebida) : base(bebida) { }
+    public override string GetDescricao()
+    {
+        return base.bebidaAtual.GetDescricao() + ", Calda de Chocolate";
+    }
+    public override double GetPreco()
+    {
+        return base.bebidaAtual.GetPreco() + 1.5;
+    }
+}
