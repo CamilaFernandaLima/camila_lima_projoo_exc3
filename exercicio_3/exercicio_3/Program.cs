@@ -23,3 +23,17 @@ public class Cha : IBebida
     public string GetDescricao() => "Chá";
     public double GetPreco() => 4.0;
 }
+
+//2. Decorator - classe dos adicionais 
+public abstract class  BebidaDecorator : IBebida
+{
+    protected IBebida bebidaAtual;
+    public BebidaDecorator(IBebida bebida)
+    {
+        this.bebidaAtual = bebida;
+    }
+
+    //só passa a chamada para a bebida que esta "dentro"
+    public virtual string GetDescricao() => bebidaAtual.GetDescricao();
+    public virtual double GetPreco() => bebidaAtual.GetPreco();
+}
