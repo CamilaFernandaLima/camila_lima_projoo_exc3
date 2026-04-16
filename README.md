@@ -4,6 +4,7 @@ Uma cafeteria deseja desenvolver um sistema para montagem de bebidas personaliza
 Como diferentes combinações são possíveis, criar uma classe para cada variação tornaria o sistema rígido e difícil de manter.
 
 *OBJETIVOS*
+
 Implementar uma solução orientada a objetos que:
 - utilize o padrão Decorator para adicionar responsabilidades dinamicamente;
 - permita combinar múltiplos adicionais sem alterar as classes base;
